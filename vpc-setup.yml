@@ -8,11 +8,11 @@
     - name: creat v profile vpc
       ec2_vpc_net:
          name: "{{vpc_name}}"
-         cider_block: "{{vpcCider}}"
+         cider_block: "{{vpcCidr}}"
          region: "{{region}}"
          dns_support: yes
          dns_hostname: yes
          tenancy: default
          state: "{{state}}"
-      register: vpcout            ## to pront and save output variable
+      register: vpcout            ## to print and save output variable
 
