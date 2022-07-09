@@ -8,7 +8,7 @@
     - name: creat v profile vpc
       ec2_vpc_net:
          name: "{{vpc_name}}"
-         cider_block: "{{vpccidr}}"
+         cider_block: "{{vpcCider}}"
          region: "{{region}}"
          dns_support: yes
          dns_hostname: yes
