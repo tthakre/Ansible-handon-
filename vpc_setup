@@ -18,8 +18,8 @@ region: "us-east-2"
 
 # AZ Name
 
-zonw1: us-east-2a
-zonw2: us-east-2b
-zonw3: us-east-2c
+zone1: us-east-2a
+zone2: us-east-2b
+zone3: us-east-2c
 
 state: present
