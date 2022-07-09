@@ -1,6 +1,6 @@
 - hosts: localhost
   connection: local
-  getheringfact: false
+  gether_fact: false
   tasks:
     - name: import vpc variables
       include_vars: vars/vpc_setup
