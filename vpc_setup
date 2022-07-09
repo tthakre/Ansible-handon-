@@ -1,0 +1,25 @@
+vpc_name: "Vprofile-vpc"
+
+# VPC Range
+vpcCidr: 172.20.0.0/16
+
+# SubNet Ranges
+
+PubSub1Cide: 172.20.1.0/24 
+PubSub2Cide: 172.20.2.0/24
+PubSub3Cide: 172.20.3.0/24
+PubSub1Cide: 172.20.4.0/24
+PubSub2Cide: 172.20.5.0/24
+PubSub3Cide: 172.20.6.0/24
+
+#Region Name 
+
+region: "us-east-2"
+
+# AZ Name
+
+zonw1: us-east-2a
+zonw2: us-east-2b
+zonw3: us-east-2c
+
+state: present
