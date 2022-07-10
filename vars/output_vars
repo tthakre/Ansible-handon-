@@ -1,0 +1,11 @@
+vpcid: vpc-037f9e2f0c7c7ffdf
+pubsub1id: subnet-04ffc87366d07b64f
+pubsub2id: subnet-072f9cca2999f45bf
+pubsub3id: subnet-019e4e828261e7a38
+privsub1id: subnet-008eb53bf279bec64
+privsub2id: subnet-0b66b330ceb6570e7
+privsub3id: subnet-04786664b4a223385
+igwid: igw-0a3cd5a3799a63333
+pubRTid: rtb-06b49d6d16d2cf2f6
+NATGWid: nat-0f2099ff481360e4a
+privRTid: rtb-09b5fe55998f84697 

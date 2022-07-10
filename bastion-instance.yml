@@ -1,0 +1,61 @@
+---
+- name: setup vprofile bastion host
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks: 
+    - name: import vpc setup variable
+      include_vars: vars/bastion_setup
+
+    - name: import vpc setup variable
+      include_vars: vars/output_vars
+
+    - name: creat vprofile EC2 key
+      ec2_key: 
+         name: vprofile_key
+         region: "{{region}}"
+      register: key_out
+
+    - name: save key into file bastion_key.pem
+      copy: 
+         content: "{{key_out}}"
+         dest: "./bastion_key.pem"
+         mode: 0600
+      when : key_out.changed
+
+    - name: creat SG for bastion host
+      ec2_group:
+         name: Bastion-host-SG
+         description: allow port 22 from everywhere and all port within sg  
+         region: "{{region}}"
+         vpc_id: "{{vpcid}}"
+         rules:
+           - porto: tcp
+             from_port: 22
+             to_port: 22
+             cidr: "{{MYIP}}"
+      register: bastionSG_out
+
+
+    - name: creating  bastion host
+      ec2: 
+         key_name: vprofile_key
+         region: "{{region}}"
+         instance_type: t2.micro
+         image: "{{bastion_ami}}"
+         wait: yes
+         wait_timeout: 300
+         instance_tags:
+            name: "Bastion-host" 
+            project: vprofile
+            owner: Devops Team
+         exact_count: 1                       ## make module idempotent
+         count_tag:
+            name: "Bastion-host"
+            project: vprofile
+            owner: Devops Team
+         group_id: "{{bastionSG_out.group_id}}"
+         vpc_subnet_id: "{{pubsub1id}}"
+      register: bastionHost_out
+            
+
